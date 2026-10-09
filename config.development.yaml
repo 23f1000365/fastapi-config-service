@@ -1,0 +1,4 @@
+port: 8241
+workers: 9
+debug: true
+log_level: error
