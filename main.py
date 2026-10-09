@@ -7,6 +7,17 @@ from pathlib import Path
 
 app = FastAPI()
 
+@app.get("/")
+async def home():
+    return {"message": "FastAPI config service is running"}
+
+@app.get("/debug-routes")
+async def debug_routes():
+    return {
+        "file": __file__,
+        "routes": [route.path for route in app.routes]
+    }
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
